@@ -1,0 +1,7 @@
+#whiteboard {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
