@@ -1,7 +1,9 @@
 #whiteboard {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #f8f9fa;
-    position: relative;
-    overflow: hidden;
+    background-image: 
+        linear-gradient(to right, #ddd 1px, transparent 1px),
+        linear-gradient(to bottom, #ddd 1px, transparent 1px);
+    background-size: 50px 50px; /* Size of the grid squares */
 }

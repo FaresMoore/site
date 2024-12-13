@@ -14,3 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.top = "50%";
     whiteboard.appendChild(card);
 });
+
+const tarotDeck = [
+    { name: "The Fool", image: "images/the-fool.jpg" },
+    { name: "The Magician", image: "images/the-magician.jpg" },
+    { name: "The High Priestess", image: "images/the-high-priestess.jpg" },
+    { name: "The Empress", image: "images/the-empress.jpg" },
+    { name: "The Emperor", image: "images/the-emperor.jpg" },
+    // Add all 78 cards similarly
+];
