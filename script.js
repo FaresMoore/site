@@ -15,11 +15,42 @@ document.addEventListener("DOMContentLoaded", () => {
     whiteboard.appendChild(card);
 });
 
-const tarotDeck = [
-    { name: "The Fool", image: "images/the-fool.jpg" },
-    { name: "The Magician", image: "images/the-magician.jpg" },
-    { name: "The High Priestess", image: "images/the-high-priestess.jpg" },
-    { name: "The Empress", image: "images/the-empress.jpg" },
-    { name: "The Emperor", image: "images/the-emperor.jpg" },
-    // Add all 78 cards similarly
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const tarotDropdown = document.getElementById("tarot-dropdown");
+
+    // Populate the dropdown
+    tarotImages.forEach((imageName) => {
+        const option = document.createElement("option");
+        option.value = imageName; // Set the value as the filename
+        option.textContent = imageName.replace(/-/g, ' ').replace('.jpg', ''); // Format for readability
+        tarotDropdown.appendChild(option);
+    });
+
+    // Event listener for card selection
+    tarotDropdown.addEventListener("change", (event) => {
+        const selectedImage = event.target.value;
+        if (selectedImage) {
+            addCardToWhiteboard(selectedImage);
+        }
+    });
+});
+
+// Function to add the selected card to the whiteboard
+function addCardToWhiteboard(imageName) {
+    const whiteboard = document.getElementById("whiteboard");
+
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card"); // Add a class for styling
+    cardElement.style.position = "absolute";
+    cardElement.style.left = "50%";
+    cardElement.style.top = "50%";
+
+    const cardImage = document.createElement("img");
+    cardImage.src = `images/${imageName}`;
+    cardImage.alt = imageName.replace(/-/g, ' ').replace('.jpg', ''); // Format for accessibility
+    cardImage.style.width = "100px"; // Adjust size
+    cardImage.style.height = "150px";
+
+    cardElement.appendChild(cardImage);
+    whiteboard.appendChild(cardElement);
+}
